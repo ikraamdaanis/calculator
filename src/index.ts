@@ -226,4 +226,39 @@ percent.addEventListener('click', (): void => {
   updateDisplay()
 })
 
+document.addEventListener('keydown', (event: KeyboardEvent): void => {
+  if (event.key === 'F12') return
+
+  const numberReg: RegExp = /[\d]/g
+  const operatorReg: RegExp = /[*\/+\-]/g
+
+  const key: string = event.key.toString()
+  const number: RegExpMatchArray | null = key.match(numberReg)
+  const operator: RegExpMatchArray | null = key.match(operatorReg)
+  const decimal: string | boolean = key === '.' && key
+
+  if (decimal) numberInput(decimal)
+
+  if (number) numberInput(number[0])
+
+  if (operator) operatorInput(operator[0])
+
+  if (key === '=' || key === 'Enter') calculate()
+
+  if (key === 'Backspace') {
+    if (!getCurrentNumber()) return
+    setCurrentNumber(
+      getCurrentNumber().toString().length === 1 ? '0' : getCurrentNumber().toString().slice(0, -1)
+    )
+    setDisplayNumber(getCurrentNumber().toString())
+    updateDisplay()
+  }
+
+  if (event.key === '%') {
+    setCurrentNumber(+getCurrentNumber() / 100)
+    setDisplayNumber(getCurrentNumber().toString())
+    updateDisplay()
+  }
+})
+
 export {}
