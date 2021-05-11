@@ -1,0 +1,42 @@
+{
+  "inputs": {
+    "dist/styles/styles.css": {
+      "bytes": 3805,
+      "imports": []
+    },
+    "dist/index.js": {
+      "bytes": 6208,
+      "imports": [
+        {
+          "path": "dist/styles/styles.css",
+          "kind": "import-statement"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "../~~bundle~~/dist/index.js": {
+      "imports": [],
+      "exports": [],
+      "entryPoint": "dist/index.js",
+      "inputs": {
+        "dist/styles/styles.css": {
+          "bytesInOutput": 0
+        },
+        "dist/index.js": {
+          "bytesInOutput": 3201
+        }
+      },
+      "bytes": 3202
+    },
+    "../~~bundle~~/dist/index.css": {
+      "imports": [],
+      "inputs": {
+        "dist/styles/styles.css": {
+          "bytesInOutput": 3108
+        }
+      },
+      "bytes": 3197
+    }
+  }
+}
